@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zsgc.mapper.Demo2Mapper">
+    <insert id="save" keyProperty = "id" keyColumn = "id" useGeneratedKeys = "true">
+        insert into demo(name,age,mail) values (#{name},#{age},#{mail})
+    </insert>
+
+    <update id="updata">
+        update demo set name=#{name} where id=#{id}
+    </update>
+    <delete id="del">
+        delete from demo where id=#{id}
+    </delete>
+
+    <select id="selectall" resultType="com.zsgc.entity.Demo">
+        select * from demo where 1
+    </select>
+
+    <select id="select1" resultType="com.zsgc.entity.Demo">
+        select * from demo where id=#{id}
+    </select>
+
+</mapper>

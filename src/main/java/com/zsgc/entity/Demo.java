@@ -3,7 +3,17 @@ package com.zsgc.entity;
 public class Demo {
     private int id;
     private String name;
+    private String mail;
     private int age;
+
+
+    public String getMail() {
+        return mail;
+    }
+
+    public void setMail(String mail) {
+        this.mail = mail;
+    }
 
     public int getId() {
         return id;
