@@ -35,10 +35,10 @@ public class Demo2Controller {
     }
 
     @RequestMapping("/selectall")
-    public List<Demo> selectall(){
+    public List<Demo> selectall(int pageNum,int pageSize){
+        PageHelper.startPage(pageNum,pageSize);
         return demo2Service.selectall();
     }
-
 
     @RequestMapping("/select1")
     public Demo select1(int id){
