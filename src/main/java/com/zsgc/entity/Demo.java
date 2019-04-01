@@ -1,11 +1,26 @@
 package com.zsgc.entity;
 
+import com.alibaba.fastjson.annotation.JSONField;
+
+import java.util.Date;
+
 public class Demo {
     private int id;
     private String name;
     private String mail;
     private int age;
+    @JSONField(format="yyyy-MM-dd")
+    private Date timetime;
 
+
+    public Date getTimetime() {
+        return timetime;
+    }
+
+
+    public void setTimetime(Date timetime) {
+        this.timetime = timetime;
+    }
 
     public String getMail() {
         return mail;

@@ -5,6 +5,57 @@
     <title>Title</title>
 </head>
 <body>
+<div onclick="conectWebSocket()" style="cursor: pointer">连接websocket</div>
 
+消息:<div id="msg"></div>
+频道号: <input type="text" id="channel">
+昵称:<input type="text" id="name"><br>
+<input type="text" id="text"><span onclick="send()" style="cursor: pointer">发送</span>
+
+<div onclick="closeWebSocket()" style="cursor: pointer">关闭websocket</div>
 </body>
+<script>
+    var websocket=null;
+    function conectWebSocket() {
+        if("WebSocket" in window){
+            var name=document.getElementById("name").value;
+            websocket=new WebSocket("ws://192.168.123.160:888/websocket/"+name);
+        }else {
+            console.log("浏览器不支持websocket");
+        }
+
+        websocket.onopen=function (ev) {
+            setMessageHtml("连接成功")
+        }
+
+        websocket.onclose=function (ev) {
+            setMessageHtml("关闭成功")
+        }
+
+        websocket.onerror=function (ev) {
+            setMessageHtml("连接异常")
+        }
+
+        websocket.onmessage=function (ev) {
+            setMessageHtml(ev.data);
+        }
+    }
+
+
+    function setMessageHtml(msg) {
+        var message=document.getElementById("msg");
+        message.innerHTML +=msg;
+    }
+    function send() {
+        var message=document.getElementById("text").value;
+        var toUser=document.getElementById("channel").value;
+        var socketMsg={msg:message,toUser:toUser};
+        if(toUser==""){
+            socketMsg.type=0;
+        }else {
+            socketMsg.type=1;
+        }
+        websocket.send(JSON.stringify(socketMsg));
+    }
+</script>
 </html>

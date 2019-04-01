@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form name="" action="/checkcode" method="post">
+<div class="row">
+    <div class="col-xs-6 pull_left">
+        <div class="form-group">
+            <input type="text" name="a">
+            <input class="form-control" name="inputStr" type="tel" id="verify_input" placeholder="请输入验证码" maxlength="4">
+        </div>
+    </div>
+    <div class="col-xs-6 pull_left">
+        <a href="javascript:void(0);" style="height: 64px;width: 220px"  rel="external nofollow" title="点击更换验证码">
+            <img id="imgVerify" src="/getcode"  onclick="getVerify(this);">
+        </a>
+        <input type="submit" name="tijiao" value="登录">
+    </div>
+</div>
+</form>
+</body>
+<script>
+    function getVerify(obj){
+        obj.src ="/getcode?"+Math.random();
+    }
+</script>
+</html>
