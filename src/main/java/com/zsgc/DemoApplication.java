@@ -23,7 +23,6 @@ public HttpMessageConverters fastJsonHttpMessageConverters(){
     fastJsonHttpMessageConverter.setFastJsonConfig(fastJsonConfig);
     HttpMessageConverter<?> converter=fastJsonHttpMessageConverter;
     return new HttpMessageConverters(converter);
-
 }
     public static void main(String[] args) {
         SpringApplication.run(DemoApplication.class, args);

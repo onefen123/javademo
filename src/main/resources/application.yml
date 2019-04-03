@@ -1,9 +1,11 @@
 server:
   port: 888
+web:
+  upload-path: C://upload
 spring:
   datasource:
     url: jdbc:mysql://103.45.101.235:3306/sss?useUnicode=true&serverTimezone=GMT&characterEncoding=utf8&useSSL=true
-    username: sss
+    username: root
     password: 123456qq
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.jdbc.Driver
@@ -21,7 +23,19 @@ spring:
     timeout: 10000
   thymeleaf:
     cache: false
-
+  resources:
+    static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,file:${web.upload-path}
+  mail:
+    host: smtp.163.com
+    username: 3000-0000@163.com
+    password: 123456qq
+    properties:
+      mail:
+        smtp:
+          auth: true
+        starttls:
+          enable: true
+          required: true
 
 
 pagehelper:
