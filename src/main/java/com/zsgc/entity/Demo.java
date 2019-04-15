@@ -8,10 +8,11 @@ import java.util.Date;
 
 @Data
 public class Demo {
-    private int id;
-    private String name;
-    private String mail;
+    public int id;
+    public String name;
+    public String mail;
     private int age;
+    private Date birthday;
 //    @JSONField(format="yyyy-MM-dd")  //fastjson
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",locale = "zh",timezone ="GMT+8" )
     private Date timetime;

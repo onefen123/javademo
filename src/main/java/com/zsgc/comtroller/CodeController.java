@@ -28,10 +28,10 @@ public class CodeController {
     }
 
     @RequestMapping(value = "/checkcode", method = RequestMethod.POST, headers = "Accept=application/json")
-    public boolean CheckCodeController(@RequestBody Map<String, Object> requestMap, HttpSession session) {
+    public boolean CheckCodeController(String inputStr, HttpSession session) {
         try {
             //从session中获取随机数
-            String inputStr = requestMap.get("inputStr").toString();
+//            String inputStr = requestMap.get("inputStr").toString();
             String random = (String) session.getAttribute("RANDOMVALIDATECODEKEY");
             if (random == null) {
                 return false;
@@ -45,6 +45,7 @@ public class CodeController {
             System.out.println("错误!!");
             return false;
         }
+
 
     }
 

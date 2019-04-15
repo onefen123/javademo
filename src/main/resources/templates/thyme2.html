@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello</title>
+</head>
+<body>
+<h2 th:include="@{/thymetop_footer}::top(msg2='1234wdw')" ></h2>
+<hr>
+<table>
+    <h3>list</h3>
+    <div th:text="${#sets.contains(demos,demo)}"></div>
+    <tr><td>NO.</td><td>姓名</td><td>邮箱</td><td>年龄</td><td>奇数行</td><td>偶数行</td></tr>
+    <tr th:each="demo,i:${demos}">
+        <td th:text="${i.index+1}"></td>
+        <td th:text="${demo.name}"></td>
+        <td th:text="${demo.mail}"></td>
+        <td th:text="${demo.age}"></td>
+        <td th:text="${i.odd}"></td>
+        <td th:text="${i.even}"></td>
+    </tr>
+</table>
+<h3>map</h3>
+<div th:text="${#maps.containsKey(demoss,'user1')}"></div><!--判断key是否存在-->
+<div th:text="${demoss['user1'].name}"></div><!--查找user1的name-->
+<table>
+    <tr><td>NO.</td><td>KEY</td><td>姓名</td><td>邮箱</td><td>年龄</td><td>奇数行</td><td>偶数行</td></tr>
+    <tr th:each="demo,i:${demoss}">
+        <td th:text="${i.index+1}"></td>
+        <td th:text="${demo.key}"></td>
+        <td th:text="${demo.value.name}"></td>
+        <td th:text="${demo.value.mail}"></td>
+        <td th:text="${demo.value.age}"></td>
+        <td th:text="${i.odd}"></td>
+        <td th:text="${i.even}"></td>
+    </tr>
+</table>
+<hr>
+<h3 th:include="@{/thymetop_footer}::footer"></h3>
+</body>
+</html>

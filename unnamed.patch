@@ -1,0 +1,19 @@
+Index: src/main/resources/mapper/demo2.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/resources/mapper/demo2.xml	(date 1551250852428)
++++ src/main/resources/mapper/demo2.xml	(date 1551250852428)
+@@ -0,0 +1,10 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
++<mapper namespace="com.zsgc.db.demoMapper">
++    <insert id="save">
++        insert into demo(name) values (#{name})
++    </insert>
++
++
++
++</mapper>
+\ No newline at end of file

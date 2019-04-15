@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello</title>
+</head>
+<body>
+<h1>Hello thymeleaf!</h1>
+<div th:text="${user.name}"></div>
+<div th:text="${user.mail}"></div>
+<div th:text="${user.age}"></div>
+<div th:text="${#dates.format(user.birthday,'yyyy-MM-dd')}"></div>
+
+<div th:if="${user.age lt 18}">未成年!</div>
+<div th:unless="${user.age eq 18}">你不是18岁!</div>
+<div th:switch="${user.age}">
+    <span th:case="10">你10岁!</span>
+    <span th:case="11">你11岁!</span>
+    <span th:case="13">你13岁!</span>
+    <span th:case="*">你不是这些岁!!</span>
+</div>
+
+</body>
+</html>
